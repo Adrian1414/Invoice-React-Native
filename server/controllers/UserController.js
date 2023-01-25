@@ -17,7 +17,7 @@ class UserController {
         .status(201)
         .json({ message: `email: ${regist.email}, Account Registered!` });
     } catch (error) {
-      console.log(error);
+      next(error)
     }
   }
 
@@ -42,7 +42,7 @@ class UserController {
       res.status(200).json({ access_token, email: find.email })
 
     } catch (error) {
-        console.log(error);
+        next(error)
     }
   }
 }
